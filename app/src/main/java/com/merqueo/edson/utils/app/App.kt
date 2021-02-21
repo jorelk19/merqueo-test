@@ -1,10 +1,10 @@
-package com.merqueo.edson.utils.app
+package com.merqueo.edson.ui.utils.app
 
 import android.content.Context
 import com.merqueo.di.KoinManager
 import com.merqueo.edson.BuildConfig
-import com.merqueo.edson.utils.Navigation
-import com.merqueo.edson.utils.connectivity.base.BaseConnectivityProvider
+import com.merqueo.edson.ui.utils.Navigation
+import com.merqueo.edson.ui.utils.connectivity.base.BaseConnectivityProvider
 
 /**
  * Class used to get the application instance and call the koin dependency injection

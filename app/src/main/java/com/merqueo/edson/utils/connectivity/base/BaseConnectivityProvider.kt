@@ -1,4 +1,4 @@
-package com.merqueo.edson.utils.connectivity.base
+package com.merqueo.edson.ui.utils.connectivity.base
 
 import android.content.Context
 import android.content.Context.CONNECTIVITY_SERVICE
@@ -10,8 +10,8 @@ import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import androidx.annotation.RequiresApi
-import com.merqueo.edson.utils.connectivity.ConnectivityProvider
-import com.merqueo.edson.utils.connectivity.LegacyConnectivityProvider
+import com.merqueo.edson.ui.utils.connectivity.ConnectivityProvider
+import com.merqueo.edson.ui.utils.connectivity.LegacyConnectivityProvider
 
 abstract class BaseConnectivityProvider {
     private val handler = Handler(Looper.getMainLooper())

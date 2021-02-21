@@ -1,5 +1,6 @@
 package com.merqueo.di
 
+import com.merqueo.domain.MovieDomain
 import com.merqueo.repository.RepositoryManager
 import org.koin.core.KoinComponent
 import org.koin.core.inject
@@ -11,8 +12,10 @@ import org.koin.core.inject
  * */
 class StoreComponent : KoinComponent {
     private val repositoryManager : RepositoryManager by inject()
+    private val movieDomain : MovieDomain by inject()
     val appComponent = AppComponent (
         repositoryManager = repositoryManager,
+        movieDomain = movieDomain
     )
 }
 

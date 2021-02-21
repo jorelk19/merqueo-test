@@ -1,4 +1,4 @@
-package com.merqueo.edson.utils.connectivity
+package com.merqueo.edson.ui.utils.connectivity
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -11,7 +11,7 @@ import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkInfo
 import android.os.Build
-import com.merqueo.edson.utils.connectivity.base.BaseConnectivityProvider
+import com.merqueo.edson.ui.utils.connectivity.base.BaseConnectivityProvider
 
 @Suppress("DEPRECATION")
 class LegacyConnectivityProvider(

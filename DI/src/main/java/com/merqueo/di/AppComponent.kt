@@ -1,5 +1,6 @@
 package com.merqueo.di
 
+import com.merqueo.domain.MovieDomain
 import com.merqueo.repository.RepositoryManager
 
 /**
@@ -8,5 +9,6 @@ import com.merqueo.repository.RepositoryManager
  * @since 1.0.0
  * */
 data class AppComponent(
-    val repositoryManager: RepositoryManager
+    val repositoryManager: RepositoryManager,
+    val movieDomain: MovieDomain
 )

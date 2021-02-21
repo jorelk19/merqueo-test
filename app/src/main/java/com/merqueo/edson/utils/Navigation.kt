@@ -1,4 +1,4 @@
-package com.merqueo.edson.utils
+package com.merqueo.edson.ui.utils
 
 import android.animation.AnimatorInflater
 import android.app.Dialog
@@ -127,7 +127,7 @@ class Navigation {
          * Method to get strings from resources
          * */
         fun getString(resourceId: Int): String {
-            return this.currentActivity.getString(resourceId)
+            return currentActivity.getString(resourceId)
         }
 
         /**

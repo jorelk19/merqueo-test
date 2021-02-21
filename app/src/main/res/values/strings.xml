@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Merqueo test</string>
     <string name="timerForValidateInternet">3000</string>
+    <string name="something_went_wrong_retry">Algo salió mal</string>
+    <string name='currencyIdentifier' translatable='false'>en_US</string>
+    <string name='hasDecimals' translatable='false'>false</string>
 </resources>

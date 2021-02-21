@@ -1,4 +1,4 @@
-package com.merqueo.edson.utils.app
+package com.merqueo.edson.ui.utils.app
 
 import android.app.Application
 import androidx.lifecycle.LifecycleObserver

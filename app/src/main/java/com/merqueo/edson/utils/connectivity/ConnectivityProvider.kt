@@ -1,4 +1,4 @@
-package com.merqueo.edson.utils.connectivity
+package com.merqueo.edson.ui.utils.connectivity
 
 import android.net.ConnectivityManager
 import android.net.ConnectivityManager.NetworkCallback
@@ -6,7 +6,7 @@ import android.net.Network
 import android.net.NetworkCapabilities
 import android.os.Build
 import androidx.annotation.RequiresApi
-import com.merqueo.edson.utils.connectivity.base.BaseConnectivityProvider
+import com.merqueo.edson.ui.utils.connectivity.base.BaseConnectivityProvider
 
 @RequiresApi(Build.VERSION_CODES.N)
 class ConnectivityProvider(private val cm: ConnectivityManager) :

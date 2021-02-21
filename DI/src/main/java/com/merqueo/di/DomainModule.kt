@@ -1,5 +1,7 @@
 package com.merqueo.di
 
+import com.merqueo.domain.MovieDomain
+import com.merqueo.repository.RepositoryManager
 import org.koin.dsl.module
 
 /**
@@ -8,7 +10,9 @@ import org.koin.dsl.module
  * @since 1.0.0
  * */
 val domainModule = module {
-
+    single { provideMovieDomain(get()) }
 }
+
+private fun provideMovieDomain(repositoryManager: RepositoryManager) = MovieDomain(repositoryManager)
 
 
