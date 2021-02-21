@@ -1,6 +1,6 @@
 package com.merqueo.di
 
-import com.merqueo.businessModels.api.StoreApi
+import com.merqueo.businessModels.api.MovieApi
 import com.merqueo.repository.RepositoryManager
 import org.koin.dsl.module
 
@@ -16,4 +16,4 @@ val repositoryModule = module {
 /**
  * Provider to get the repository manager instance
  * */
-private fun provideStoreRepository(storeApi: StoreApi) = RepositoryManager(storeApi)
+private fun provideStoreRepository(movieApi: MovieApi) = RepositoryManager(movieApi)
