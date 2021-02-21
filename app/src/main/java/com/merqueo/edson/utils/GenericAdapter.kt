@@ -1,4 +1,4 @@
-package com.merqueo.edson.ui.utils
+package com.merqueo.edson.utils
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
  * @author Edson Joel Nieto Ardila
  * @since 1.0.0
  * */
+@Suppress("UNCHECKED_CAST")
 abstract class GenericAdapter<T, D> : RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     var mContext: Context? = null
@@ -33,7 +34,7 @@ abstract class GenericAdapter<T, D> : RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        onBindData(listItems.get(position), position, (holder as ItemViewHolder).mDataBinding as D)
+        onBindData(listItems.get(position), position, (holder as GenericAdapter<*, *>.ItemViewHolder).mDataBinding as D)
     }
 
     override fun getItemCount(): Int {

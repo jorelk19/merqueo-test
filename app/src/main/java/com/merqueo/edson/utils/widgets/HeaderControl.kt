@@ -1,13 +1,13 @@
-package com.mercadolibre.edson.utils.widgets
+package com.merqueo.edson.utils.widgets
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import androidx.databinding.DataBindingUtil
-import com.mercadolibre.edson.R
-import com.mercadolibre.edson.databinding.LayoutHeaderControlBinding
-import com.mercadolibre.edson.utils.Navigation
+import com.merqueo.edson.R
+import com.merqueo.edson.databinding.LayoutHeaderControlBinding
+import com.merqueo.edson.ui.utils.Navigation
 
 
 /***

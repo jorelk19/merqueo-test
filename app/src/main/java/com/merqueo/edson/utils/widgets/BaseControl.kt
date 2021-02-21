@@ -1,10 +1,10 @@
-package com.mercadolibre.edson.utils.widgets
+package com.merqueo.edson.utils.widgets
 
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.FrameLayout
 import androidx.lifecycle.LifecycleObserver
-import com.mercadolibre.edson.utils.Navigation
+import com.merqueo.edson.ui.utils.Navigation
 
 /**
  * Abstract class to manage the frame layout to create custom controls and manage the life cycle observer
