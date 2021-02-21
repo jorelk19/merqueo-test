@@ -1,6 +1,6 @@
 package com.merqueo.repository
 
-import com.merqueo.models.api.StoreApi
+import com.merqueo.businessModels.api.StoreApi
 /**
  * Class used to manage the repository data and return correct information
  * @author Edson Joel Nieto Ardila

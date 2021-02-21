@@ -1,6 +1,7 @@
 package com.merqueo.di
 
-import com.merqueo.models.api.StoreApi
+import com.merqueo.businessModels.api.MovieApi
+import com.merqueo.businessModels.api.StoreApi
 import okhttp3.OkHttpClient
 import org.koin.core.module.Module
 import org.koin.core.qualifier.named
@@ -15,10 +16,10 @@ import java.util.concurrent.TimeUnit
  * @author Edson Joel Nieto Ardila
  * @since 1.0.0
  **/
-class NetworkModule(private val storeApiUrl: String) {
+class NetworkModule(private val movieApiUrl: String) {
     companion object {
         const val okHttpClientWithoutInterceptor = "defaultOkHttpClient"
-        const val retrofitStore = "retrofitStore"
+        const val retrofitMovie = "retrofitMovie"
         private const val DEFAULT_TIME_OUT = 60L
     }
 
@@ -30,9 +31,9 @@ class NetworkModule(private val storeApiUrl: String) {
 
             // Retrofit and OkHttpClient instances
             single(named(okHttpClientWithoutInterceptor)) { provideDefaultOkHttpClient() }
-            single(named(retrofitStore)) { provideRetrofitStoreClient(get(named(okHttpClientWithoutInterceptor))) }
+            single(named(retrofitMovie)) { provideRetrofitMovieClient(get(named(okHttpClientWithoutInterceptor))) }
             // API
-            single { provideStoreApi(get(named(retrofitStore))) }
+            single { provideMovieApi(get(named(retrofitMovie))) }
         }
     }
 
@@ -48,17 +49,21 @@ class NetworkModule(private val storeApiUrl: String) {
     }
 
     /**
-     * Retrofit store clients
+     * Retrofit movie clients
      */
-    private fun provideRetrofitStoreClient(client: OkHttpClient): Retrofit {
+    private fun provideRetrofitMovieClient(client: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(storeApiUrl)
+            .baseUrl(movieApiUrl)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .build()
     }
+
 }
 
+/**
+ * Movie api provider
+ * */
+private fun provideMovieApi(retrofit: Retrofit): MovieApi = retrofit.create(MovieApi::class.java)
 
-private fun provideStoreApi(retrofit: Retrofit): StoreApi = retrofit.create(StoreApi::class.java)

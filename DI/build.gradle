@@ -29,5 +29,5 @@ dependencies {
     //Local Library
     implementation(project(":Domain"))
     implementation(project(":Repository"))
-    implementation(project(":Models"))
+    implementation(project(":BusinessModels"))
 }

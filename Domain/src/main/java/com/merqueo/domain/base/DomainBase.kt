@@ -1,6 +1,6 @@
 package com.merqueo.domain.base
 
-import com.merqueo.models.errors.IErrorManager
+import com.merqueo.businessModels.errors.IErrorManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

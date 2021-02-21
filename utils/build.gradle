@@ -10,7 +10,4 @@ java {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-
-    //Local Library
-    implementation(project(":BusinessModels"))
 }

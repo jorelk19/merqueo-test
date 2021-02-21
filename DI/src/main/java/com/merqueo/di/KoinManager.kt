@@ -9,12 +9,12 @@ import org.koin.core.context.startKoin
  * */
 class KoinManager {
     companion object {
-        fun initKoin(storeApi: String) {
+        fun initKoin(movieApi: String) {
             startKoin {
                 modules(
                     arrayListOf(
                         repositoryModule,
-                        NetworkModule(storeApi).initModule(),
+                        NetworkModule(movieApi).initModule(),
                         domainModule
                     )
                 )

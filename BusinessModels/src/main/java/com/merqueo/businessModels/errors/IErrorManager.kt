@@ -1,4 +1,4 @@
-package com.merqueo.models.errors
+package com.merqueo.businessModels.errors
 
 import retrofit2.HttpException
 

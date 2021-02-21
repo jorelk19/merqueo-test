@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Merqueo test</string>
+    <string name="timerForValidateInternet">3000</string>
 </resources>

@@ -23,10 +23,41 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "mode"
+
+    productFlavors {
+        develop {
+            dimension "mode"
+            buildConfigField "String", "MOVIES_API", "\"https://api.themoviedb.org\""
+            buildConfigField "String", "IMAGES_API", "\"https://image.tmdb.org\""
+            versionNameSuffix "-dev"
+        }
+
+        staging {
+            dimension "mode"
+            buildConfigField "String", "MOVIES_API", "\"https://api.themoviedb.org\""
+            buildConfigField "String", "IMAGES_API", "\"https://image.tmdb.org\""
+            versionNameSuffix "-staging"
+        }
+
+        production {
+            dimension "mode"
+            buildConfigField "String", "MOVIES_API", "\"https://api.themoviedb.org\""
+            buildConfigField "String", "IMAGES_API", "\"https://image.tmdb.org\""
+            versionNameSuffix "-production"
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    buildFeatures {
+        dataBinding true
+    }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -42,4 +73,9 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //Local Library
+    implementation(project(":BusinessModels"))
+    implementation(project(":Domain"))
+    implementation(project(":DI"))
 }
