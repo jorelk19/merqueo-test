@@ -1,2 +1,6 @@
+include ':DI'
+include ':Domain'
+include ':Models'
+include ':Repository'
 include ':app'
 rootProject.name = "Merqueo test"
