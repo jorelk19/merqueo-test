@@ -5,8 +5,10 @@ import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.ImageView
 import com.jakewharton.picasso.OkHttp3Downloader
+import com.merqueo.edson.BuildConfig
 import com.merqueo.edson.R
 import com.merqueo.edson.ui.utils.app.App
+import com.merqueo.edson.utils.Navigation
 import com.squareup.picasso.Picasso
 import java.text.NumberFormat
 import java.util.*
@@ -24,7 +26,7 @@ private val picasso: Picasso by lazy { Picasso.Builder(App.getAppContext()).down
  * Extension to load image from url
  * */
 fun ImageView.loadImage(imageUrl: String) {
-    picasso.load(imageUrl)
+    picasso.load(BuildConfig.IMAGES_API + "/t/p/w500" + imageUrl)
         .placeholder(R.drawable.image_placeholder)
         .into(this)
 }
@@ -56,12 +58,12 @@ fun EditText.doOnTextChange(textChange: (CharSequence) -> Unit) {
  * */
 fun Double.toCurrencyFormat(): String {
     var localIdentifier = Locale.US
-    if (Navigation.getString(R.string.currencyIdentifier).contains("_")) {
-        val locateSplit = Navigation.getString(R.string.currencyIdentifier).split("_")
+    if (Navigation.getInstance.getString(R.string.currencyIdentifier).contains("_")) {
+        val locateSplit = Navigation.getInstance.getString(R.string.currencyIdentifier).split("_")
         localIdentifier = Locale(locateSplit[0], locateSplit[1])
     }
     val retorno = NumberFormat.getCurrencyInstance(localIdentifier).format(this)
-    return if (Navigation.getString(R.string.hasDecimals).contentEquals("true")) retorno else retorno.substringBefore(".")
+    return if (Navigation.getInstance.getString(R.string.hasDecimals).contentEquals("true")) retorno else retorno.substringBefore(".")
 }
 
 /**
@@ -69,12 +71,12 @@ fun Double.toCurrencyFormat(): String {
  * */
 fun Float.toCurrencyFormat(): String {
     var localIdentifier = Locale.US
-    if (Navigation.getString(R.string.currencyIdentifier).contains("_")) {
-        val locateSplit = Navigation.getString(R.string.currencyIdentifier).split("_")
+    if (Navigation.getInstance.getString(R.string.currencyIdentifier).contains("_")) {
+        val locateSplit = Navigation.getInstance.getString(R.string.currencyIdentifier).split("_")
         localIdentifier = Locale(locateSplit[0], locateSplit[1])
     }
     val retorno = NumberFormat.getCurrencyInstance(localIdentifier).format(this)
-    return if (Navigation.getString(R.string.hasDecimals).contentEquals("true")) retorno else retorno.substringBefore(".")
+    return if (Navigation.getInstance.getString(R.string.hasDecimals).contentEquals("true")) retorno else retorno.substringBefore(".")
 }
 
 /**
@@ -82,10 +84,10 @@ fun Float.toCurrencyFormat(): String {
  * */
 fun Int.toCurrencyFormat(): String {
     var localIdentifier = Locale.US
-    if (Navigation.getString(R.string.currencyIdentifier).contains("_")) {
-        val locateSplit = Navigation.getString(R.string.currencyIdentifier).split("_")
+    if (Navigation.getInstance.getString(R.string.currencyIdentifier).contains("_")) {
+        val locateSplit = Navigation.getInstance.getString(R.string.currencyIdentifier).split("_")
         localIdentifier = Locale(locateSplit[0], locateSplit[1])
     }
     val retorno = NumberFormat.getCurrencyInstance(localIdentifier).format(this)
-    return if (Navigation.getString(R.string.hasDecimals).contentEquals("true")) retorno else retorno.substringBefore(".")
+    return if (Navigation.getInstance.getString(R.string.hasDecimals).contentEquals("true")) retorno else retorno.substringBefore(".")
 }

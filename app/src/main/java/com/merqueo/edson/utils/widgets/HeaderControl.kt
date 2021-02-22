@@ -7,7 +7,7 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.merqueo.edson.R
 import com.merqueo.edson.databinding.LayoutHeaderControlBinding
-import com.merqueo.edson.ui.utils.Navigation
+import com.merqueo.edson.utils.Navigation
 
 
 /***
@@ -63,6 +63,6 @@ class HeaderControl : BaseControl {
         layoutHeaderControlBinding.tvHeaderScreenTitle.text = title
         layoutHeaderControlBinding.ivHeaderBack.visibility = if (isBackVisibility)  View.VISIBLE else View.GONE
         layoutHeaderControlBinding.ivHeaderBack.setColorFilter(android.R.color.white)
-        layoutHeaderControlBinding.ivHeaderBack.setOnClickListener { Navigation.onBack() }
+        layoutHeaderControlBinding.ivHeaderBack.setOnClickListener { Navigation.getInstance.onBack() }
     }
 }

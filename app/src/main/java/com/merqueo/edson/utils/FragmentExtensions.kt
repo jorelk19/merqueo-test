@@ -1,6 +1,7 @@
-package com.merqueo.edson.ui.utils
+package com.merqueo.edson.utils
 
 import androidx.fragment.app.Fragment
+import com.merqueo.edson.ui.utils.ViewModelFactory
 
 /**
  * Extension functions for Fragment.

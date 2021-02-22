@@ -3,7 +3,8 @@ package com.merqueo.edson.ui.utils.app
 import android.content.Context
 import com.merqueo.di.KoinManager
 import com.merqueo.edson.BuildConfig
-import com.merqueo.edson.ui.utils.Navigation
+import com.merqueo.edson.R
+import com.merqueo.edson.utils.Navigation
 import com.merqueo.edson.ui.utils.connectivity.base.BaseConnectivityProvider
 
 /**
@@ -23,7 +24,7 @@ class App : BaseApplication() {
     private val connectivityStateListener =
         object : BaseConnectivityProvider.ConnectivityStateListener {
             override fun onStateChange(state: BaseConnectivityProvider.NetworkState) {
-                Navigation.setInternetConnection(state.hasInternet())
+                Navigation.getInstance.setInternetConnection(state.hasInternet())
             }
 
             private fun BaseConnectivityProvider.NetworkState.hasInternet(): Boolean {
@@ -44,7 +45,7 @@ class App : BaseApplication() {
      * */
     override fun onAppStart() {
         appContext = this
-        KoinManager.initKoin(BuildConfig.MOVIES_API)
+        KoinManager.initKoin(BuildConfig.MOVIES_API, App.getAppContext().getString(R.string.app_api_key))
         providerBase.addListener(connectivityStateListener)
     }
 

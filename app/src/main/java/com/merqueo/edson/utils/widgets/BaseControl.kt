@@ -4,7 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.widget.FrameLayout
 import androidx.lifecycle.LifecycleObserver
-import com.merqueo.edson.ui.utils.Navigation
+import com.merqueo.edson.utils.Navigation
 
 /**
  * Abstract class to manage the frame layout to create custom controls and manage the life cycle observer
@@ -24,6 +24,6 @@ abstract class BaseControl : FrameLayout, LifecycleObserver {
      * */
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
-        Navigation.getCurrentActivity().lifecycle.addObserver(this)
+        Navigation.getInstance.getCurrentActivity().lifecycle.addObserver(this)
     }
 }

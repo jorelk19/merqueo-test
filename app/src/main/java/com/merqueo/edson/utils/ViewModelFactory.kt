@@ -3,6 +3,7 @@ package com.merqueo.edson.ui.utils
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.merqueo.di.appComponent
+import com.merqueo.edson.ui.viewModels.MovieDetailViewModel
 import com.merqueo.edson.ui.viewModels.MovieViewModel
 
 /**
@@ -21,6 +22,7 @@ class ViewModelFactory : ViewModelProvider.NewInstanceFactory() {
         {
             when {
                 isAssignableFrom(MovieViewModel::class.java) -> MovieViewModel(appComponent.movieDomain)
+                isAssignableFrom(MovieDetailViewModel::class.java) -> MovieDetailViewModel()
                 else -> throw IllegalStateException("Unknown ViewModel class: ${modelClass.name}")
             }
         } as T
