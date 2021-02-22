@@ -38,6 +38,7 @@
                     android:id="@+id/ivMovie"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/dimen300"
+                    android:src="@{movieViewModel.movieModel.movieImage}"
                     app:layout_collapseMode="parallax"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

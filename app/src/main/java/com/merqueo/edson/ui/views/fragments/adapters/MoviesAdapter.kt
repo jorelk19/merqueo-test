@@ -4,27 +4,29 @@ import android.content.Context
 import com.merqueo.businessModels.business.Movie
 import com.merqueo.edson.R
 import com.merqueo.edson.databinding.LayoutMovieItemBinding
-import com.merqueo.edson.ui.utils.loadImage
-import com.merqueo.edson.ui.views.fragments.MoviesDetailFragment
+import com.merqueo.edson.ui.viewModels.MovieItemViewModel
 import com.merqueo.edson.utils.GenericAdapter
-import com.merqueo.edson.utils.Navigation
 
-class MoviesAdapter(context :Context, movies: ArrayList<Movie>) : GenericAdapter<Movie,LayoutMovieItemBinding>(context, movies) {
+/**
+ * Class used to set the data for the recycler view that show the movie list
+ * @author Edson Joel Nieto Ardila
+ * @since 1.0.0
+ * */
+class MoviesAdapter(context: Context, movies: ArrayList<Movie>) : GenericAdapter<Movie, LayoutMovieItemBinding>(context, movies) {
+
+    /**
+     * Method to retrieve the layout for the item in recycler view
+     * */
     override fun getLayoutResId(): Int {
         return R.layout.layout_movie_item
     }
 
+    /**
+     * Method that allow load information into view model
+     * */
     override fun onBindData(model: Movie, position: Int, dataBinding: LayoutMovieItemBinding) {
-        model.posterPath?.let {
-            dataBinding.ivMovie.loadImage(it)
-        }
-        dataBinding.tvMovieName.text = model.title
-        setListeners(model, dataBinding)
-    }
-
-    private fun setListeners(model: Movie, dataBinding: LayoutMovieItemBinding){
-        dataBinding.itemContainer.setOnClickListener {
-            Navigation.getInstance.attachFragment(MoviesDetailFragment.getInstance(model), R.id.fragment_container)
-        }
+        val movieItemViewModel = MovieItemViewModel()
+        dataBinding.itemViewModel = movieItemViewModel
+        movieItemViewModel.setMovieData(model)
     }
 }

@@ -8,4 +8,7 @@
     <color name='statusRedLabel'>#FF5722</color>
     <color name='statusYellowLabel'>#E64A19</color>
     <color name='backgroundGray'>#fff3f5f6</color>
+
+    <color name="start_gradient_color">#48F0F1F6</color>
+    <color name="end_gradient_color">#F0F1F6</color>
 </resources>

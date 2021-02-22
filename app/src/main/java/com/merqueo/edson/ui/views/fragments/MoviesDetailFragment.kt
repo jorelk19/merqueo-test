@@ -16,6 +16,11 @@ import com.merqueo.edson.ui.utils.loadImage
 import com.merqueo.edson.ui.viewModels.MovieDetailViewModel
 import com.merqueo.edson.utils.getViewModelFactory
 
+/**
+ * Class used to manage the movie detail
+ * @author Edson Joel Nieto Ardila
+ * @since 1.0.0
+ * */
 class MoviesDetailFragment : Fragment() {
 
     private lateinit var binding: LayoutMovieDetailFragmentBinding
@@ -30,25 +35,27 @@ class MoviesDetailFragment : Fragment() {
         }
     }
 
+    /**
+     * Method in charge of set the current movie detail
+     * */
     private fun setCurrentMovie(currentMovie: Movie) {
         movie = currentMovie
     }
 
+    /**
+     * Method to instantiate the view
+     * */
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.layout_movie_detail_fragment, container, false)
         binding.movieViewModel = viewModel
         loadMovieData()
         setListeners()
-        addSubscription()
         return binding.root
     }
 
-    private fun addSubscription() {
-        viewModel.getMovieImageLiveData().observe(viewLifecycleOwner, Observer {
-            binding.ivMovie.loadImage(it)
-        })
-    }
-
+    /**
+     * Method to set the listeners on the view
+     * */
     private fun setListeners() {
         binding.appBar.addOnOffsetChangedListener(AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
             when {
@@ -68,6 +75,9 @@ class MoviesDetailFragment : Fragment() {
         })
     }
 
+    /**
+     * Method to load the movie detail data
+     * */
     private fun loadMovieData() {
         movie?.let {
             viewModel.setMovieData(it)

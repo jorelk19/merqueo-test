@@ -1,10 +1,13 @@
 package com.merqueo.edson.ui.viewModels.base
 
+import android.widget.ImageView
+import androidx.databinding.BindingAdapter
 import androidx.lifecycle.ViewModel
 import com.merqueo.businessModels.errors.IErrorManager
 import com.merqueo.edson.R
 import com.merqueo.edson.utils.Navigation
 import com.merqueo.edson.ui.utils.SnackFactory
+import com.merqueo.edson.ui.utils.loadImage
 import retrofit2.HttpException
 
 /**
@@ -50,5 +53,13 @@ open class BaseViewModel : ViewModel(), IErrorManager {
      * */
     override fun onShowLoader(){
         Navigation.getInstance.showLoader()
+    }
+
+    companion object {
+        @BindingAdapter("android:src")
+        @JvmStatic
+        fun loadImage(imageView: ImageView, movieImage: String) {
+            imageView.loadImage(movieImage)
+        }
     }
 }

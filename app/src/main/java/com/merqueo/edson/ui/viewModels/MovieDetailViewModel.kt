@@ -1,29 +1,25 @@
 package com.merqueo.edson.ui.viewModels
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.merqueo.businessModels.business.Movie
 import com.merqueo.edson.ui.models.MovieModel
 import com.merqueo.edson.ui.viewModels.base.BaseViewModel
 
+/**
+ * Class used to manage the view model for the movie detail view
+ * @author Edson Joel Nieto Ardila
+ * @since 1.0.0
+ * */
 class MovieDetailViewModel : BaseViewModel() {
 
-    var movieImage = MutableLiveData<String>()
     var movieModel = MovieModel()
 
     /**
-     * Live data to get the image movie
+     * Method to set the movie values
      * */
-    fun getMovieImageLiveData(): LiveData<String> {
-        return movieImage
-    }
-
-    fun setMovieData(movie : Movie){
-        movie.posterPath?.let {
-            movieImage.value = it
-        }
+    fun setMovieData(movie: Movie) {
         movieModel.movieDate = movie.releaseDate.toString()
         movieModel.movieName = movie.title?.let { it } ?: run { "" }
         movieModel.movieOverview = movie.overview?.let { it } ?: run { "" }
+        movieModel.movieImage = movie.posterPath?.let { it } ?: run { "" }
     }
 }

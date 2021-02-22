@@ -15,4 +15,6 @@
     <dimen name="textSize30">30sp</dimen>
     <dimen name="textSize13">13sp</dimen>
     <dimen name="dimen0">0dp</dimen>
+    <dimen name="dimen12">12dp</dimen>
+    <dimen name="dimen4">4dp</dimen>
 </resources>

@@ -9,7 +9,11 @@ import com.merqueo.edson.ui.views.activities.MainActivity
 import com.merqueo.edson.ui.views.activities.base.BaseFragmentActivity
 import com.merqueo.edson.utils.Navigation
 
-
+/**
+ * Activity use to show splash screen when the application start
+ * @author Edson Joel Nieto Ardila *
+ * @since 1.0.0
+ * */
 class SplashScreenActivity : BaseFragmentActivity() {
 
     private lateinit var activitySplashScreenBinding: ActivitySplashScreenBinding

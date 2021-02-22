@@ -5,7 +5,7 @@
     <string name="something_went_wrong_retry">Algo salió mal</string>
     <string name='currencyIdentifier' translatable='false'>en_US</string>
     <string name='hasDecimals' translatable='false'>false</string>
-    <string name="movie_name">Nombre de la pelicula</string>
+    <string name="movie_name">Peliculas</string>
     <string name="movie_title">Peliculas</string>
     <string name="overview_title">Sinopsis</string>
     <string name="release_date">Fecha de estreno</string>
