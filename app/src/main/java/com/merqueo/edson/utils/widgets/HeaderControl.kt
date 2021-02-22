@@ -3,11 +3,10 @@ package com.merqueo.edson.utils.widgets
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
-import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.merqueo.edson.R
 import com.merqueo.edson.databinding.LayoutHeaderControlBinding
-import com.merqueo.edson.utils.Navigation
+import com.merqueo.edson.ui.viewModels.HeaderViewModel
 
 
 /***
@@ -17,9 +16,10 @@ import com.merqueo.edson.utils.Navigation
  * * */
 class HeaderControl : BaseControl {
     private lateinit var layoutHeaderControlBinding: LayoutHeaderControlBinding
+    var viewModel = HeaderViewModel()
     var mContext: Context
-    private var title : String = ""
-    private var isBackVisibility : Boolean = false
+    private var title: String = ""
+    private var isBackVisibility: Boolean = false
 
     constructor(context: Context) : super(context) {
         mContext = context
@@ -60,9 +60,9 @@ class HeaderControl : BaseControl {
     private fun init() {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         layoutHeaderControlBinding = DataBindingUtil.inflate(inflater, R.layout.layout_header_control, this, true)
-        layoutHeaderControlBinding.tvHeaderScreenTitle.text = title
-        layoutHeaderControlBinding.ivHeaderBack.visibility = if (isBackVisibility)  View.VISIBLE else View.GONE
+        layoutHeaderControlBinding.headerViewModel = viewModel
+        viewModel.headerModel.headerTitle = title
+        viewModel.headerModel.isBackVisibility = isBackVisibility
         layoutHeaderControlBinding.ivHeaderBack.setColorFilter(android.R.color.white)
-        layoutHeaderControlBinding.ivHeaderBack.setOnClickListener { Navigation.getInstance.onBack() }
     }
 }
