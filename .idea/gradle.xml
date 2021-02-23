@@ -15,8 +15,8 @@
             <option value="$PROJECT_DIR$/DI" />
             <option value="$PROJECT_DIR$/Domain" />
             <option value="$PROJECT_DIR$/Repository" />
+            <option value="$PROJECT_DIR$/Utils" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/utils" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

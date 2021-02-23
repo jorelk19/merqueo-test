@@ -6,7 +6,7 @@ import com.merqueo.edson.R
 import com.merqueo.edson.databinding.ActivityMainBinding
 import com.merqueo.edson.ui.views.activities.base.BaseFragmentActivity
 import com.merqueo.edson.ui.views.fragments.MoviesFragment
-import com.merqueo.edson.utils.Navigation
+import com.merqueo.utils.Navigation
 
 class MainActivity : BaseFragmentActivity() {
     private lateinit var binding: ActivityMainBinding

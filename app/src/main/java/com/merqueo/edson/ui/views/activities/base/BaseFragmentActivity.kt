@@ -3,7 +3,7 @@ package com.merqueo.edson.ui.views.activities.base
 import android.os.Bundle
 import android.os.PersistableBundle
 import androidx.fragment.app.FragmentActivity
-import com.merqueo.edson.utils.Navigation
+import com.merqueo.utils.Navigation
 
 /**
  * Class used to manage the activities in the application

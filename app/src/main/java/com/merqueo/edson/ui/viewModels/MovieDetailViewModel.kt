@@ -1,6 +1,6 @@
 package com.merqueo.edson.ui.viewModels
 
-import com.merqueo.businessModels.business.Movie
+import com.merqueo.businessmodels.business.Movie
 import com.merqueo.edson.ui.models.MovieModel
 import com.merqueo.edson.ui.viewModels.base.BaseViewModel
 
@@ -15,7 +15,7 @@ class MovieDetailViewModel : BaseViewModel() {
 
     /**
      * Method to set the movie values
-     * */
+     **/
     fun setMovieData(movie: Movie) {
         movieModel.movieDate = movie.releaseDate.toString()
         movieModel.movieName = movie.title?.let { it } ?: run { "" }

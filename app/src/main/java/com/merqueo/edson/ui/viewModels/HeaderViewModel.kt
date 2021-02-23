@@ -2,7 +2,7 @@ package com.merqueo.edson.ui.viewModels
 
 import com.merqueo.edson.ui.models.HeaderModel
 import com.merqueo.edson.ui.viewModels.base.BaseViewModel
-import com.merqueo.edson.utils.Navigation
+import com.merqueo.utils.Navigation
 
 /**
  * Class used to manage the view model for the header view

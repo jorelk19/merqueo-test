@@ -1,6 +1,6 @@
-package com.merqueo.businessModels.api
+package com.merqueo.businessmodels.api
 
-import com.merqueo.businessModels.response.MovieResponse
+import com.merqueo.businessmodels.response.MovieResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

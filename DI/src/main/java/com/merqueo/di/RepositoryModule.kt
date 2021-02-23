@@ -1,6 +1,6 @@
 package com.merqueo.di
 
-import com.merqueo.businessModels.api.MovieApi
+import com.merqueo.businessmodels.api.MovieApi
 import com.merqueo.repository.RepositoryManager
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -18,9 +18,7 @@ class RepositoryModule(private val apiKey: String) {
 
     fun initModule(): Module {
         return module {
-            single {
-                provideStoreRepository(get())
-            }
+            single { provideStoreRepository(get()) }
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.merqueo.domain.base
 
-import com.merqueo.businessModels.errors.IErrorManager
+import com.merqueo.businessmodels.errors.IErrorManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -16,4 +16,5 @@ open class DomainBase : CoroutineScope {
     override val coroutineContext: CoroutineContext = job + Dispatchers.IO
 
     lateinit var errorManager : IErrorManager
+    var hasInternet : Boolean = false
 }

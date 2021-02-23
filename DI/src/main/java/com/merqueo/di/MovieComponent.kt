@@ -18,5 +18,3 @@ class StoreComponent : KoinComponent {
         movieDomain = movieDomain
     )
 }
-
-val appComponent by lazy(LazyThreadSafetyMode.SYNCHRONIZED) { StoreComponent().appComponent }

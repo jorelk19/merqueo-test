@@ -1,6 +1,6 @@
-package com.merqueo.businessModels.response
+package com.merqueo.businessmodels.response
 
-import com.merqueo.businessModels.business.Movie
+import com.merqueo.businessmodels.business.Movie
 import com.google.gson.annotations.SerializedName
 
 /**

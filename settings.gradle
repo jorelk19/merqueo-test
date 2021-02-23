@@ -1,7 +1,7 @@
-include ':utils'
 include ':DI'
-include ':Domain'
 include ':BusinessModels'
+include ':Domain'
 include ':Repository'
+include ':Utils'
 include ':app'
-rootProject.name = "Merqueo test"
+rootProject.name = "MerqueoTest"

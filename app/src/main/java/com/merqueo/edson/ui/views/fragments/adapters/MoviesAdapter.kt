@@ -1,11 +1,11 @@
 package com.merqueo.edson.ui.views.fragments.adapters
 
 import android.content.Context
-import com.merqueo.businessModels.business.Movie
+import com.merqueo.businessmodels.business.Movie
 import com.merqueo.edson.R
 import com.merqueo.edson.databinding.LayoutMovieItemBinding
 import com.merqueo.edson.ui.viewModels.MovieItemViewModel
-import com.merqueo.edson.utils.GenericAdapter
+import com.merqueo.utils.GenericAdapter
 
 /**
  * Class used to set the data for the recycler view that show the movie list

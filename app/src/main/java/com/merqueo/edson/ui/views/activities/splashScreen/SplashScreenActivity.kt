@@ -7,7 +7,7 @@ import com.merqueo.edson.R
 import com.merqueo.edson.databinding.ActivitySplashScreenBinding
 import com.merqueo.edson.ui.views.activities.MainActivity
 import com.merqueo.edson.ui.views.activities.base.BaseFragmentActivity
-import com.merqueo.edson.utils.Navigation
+import com.merqueo.utils.Navigation
 
 /**
  * Activity use to show splash screen when the application start

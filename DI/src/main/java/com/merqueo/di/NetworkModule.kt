@@ -1,6 +1,6 @@
 package com.merqueo.di
 
-import com.merqueo.businessModels.api.MovieApi
+import com.merqueo.businessmodels.api.MovieApi
 import okhttp3.OkHttpClient
 import org.koin.core.module.Module
 import org.koin.core.qualifier.named

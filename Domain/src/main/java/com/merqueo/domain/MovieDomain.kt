@@ -1,6 +1,6 @@
 package com.merqueo.domain
 
-import com.merqueo.businessModels.result.IMovieResult
+import com.merqueo.businessmodels.result.IMovieResult
 import com.merqueo.domain.base.DomainBase
 import com.merqueo.repository.RepositoryManager
 import kotlinx.coroutines.Dispatchers
@@ -20,7 +20,17 @@ class MovieDomain(private val repositoryManager: RepositoryManager) : DomainBase
         launch(Dispatchers.Main) {
             try {
                 errorManager.onShowLoader()
-                movieResult.setMovieList(withContext(Dispatchers.IO) { repositoryManager.getMovies() })
+                if(hasInternet) {
+                    val movies = withContext(Dispatchers.IO) { repositoryManager.getRemoteMovies() }
+                    movieResult.setMovieList(movies)
+                    repositoryManager.deleteAllMoviesLocal()
+                    for (movie in movies) {
+                        repositoryManager.saveMovieLocal(movie)
+                    }
+                }else{
+                    val movies = repositoryManager.getLocalMovies()
+                    movieResult.setMovieList(movies)
+                }
                 errorManager.onHideLoader()
             } catch (exception: HttpException) {
                 errorManager.onServiceErrorHttpException(exception.message, exception)

@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.merqueo.edson.utils.widgets.HeaderControl
+        <com.merqueo.edson.ui.views.widgets.HeaderControl
             android:id="@+id/headerControl"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen60"

@@ -3,11 +3,11 @@ package com.merqueo.edson.ui.viewModels.base
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.ViewModel
-import com.merqueo.businessModels.errors.IErrorManager
+import com.merqueo.businessmodels.errors.IErrorManager
 import com.merqueo.edson.R
-import com.merqueo.edson.utils.Navigation
-import com.merqueo.edson.ui.utils.SnackFactory
-import com.merqueo.edson.ui.utils.loadImage
+import com.merqueo.utils.Navigation
+import com.merqueo.utils.SnackFactory
+import com.merqueo.utils.loadImage
 import retrofit2.HttpException
 
 /**
@@ -30,7 +30,7 @@ open class BaseViewModel : ViewModel(), IErrorManager {
      * */
     override fun onSocketTimeoutException(error: String?) {
         Navigation.getInstance.hideLoader()
-        SnackFactory.showWarningMessage(fragmentActivity = Navigation.getInstance.getCurrentActivity(), resource = R.id.coordinator_main_activity, error?.let{ it } ?: run { Navigation.getInstance.getString(R.string.something_went_wrong_retry) })
+        SnackFactory.showWarningMessage(fragmentActivity = Navigation.getInstance.getCurrentActivity(), resource = R.id.coordinator_main_activity, message = error?.let { it } ?: run { Navigation.getInstance.getString(R.string.something_went_wrong_retry) })
     }
 
     /**
@@ -38,7 +38,7 @@ open class BaseViewModel : ViewModel(), IErrorManager {
      * */
     override fun onIOException(error: String?) {
         Navigation.getInstance.hideLoader()
-        SnackFactory.showWarningMessage(fragmentActivity = Navigation.getInstance.getCurrentActivity(), resource = R.id.coordinator_main_activity, error?.let{ it } ?: run { Navigation.getInstance.getString(R.string.something_went_wrong_retry) })
+        SnackFactory.showWarningMessage(fragmentActivity = Navigation.getInstance.getCurrentActivity(), resource = R.id.coordinator_main_activity, message = error?.let { it } ?: run { Navigation.getInstance.getString(R.string.something_went_wrong_retry) })
     }
 
     /**
@@ -51,7 +51,7 @@ open class BaseViewModel : ViewModel(), IErrorManager {
     /**
      * Method to show the loader
      * */
-    override fun onShowLoader(){
+    override fun onShowLoader() {
         Navigation.getInstance.showLoader()
     }
 

@@ -7,14 +7,12 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import com.google.android.material.appbar.AppBarLayout
-import com.merqueo.businessModels.business.Movie
+import com.merqueo.businessmodels.business.Movie
 import com.merqueo.edson.R
 import com.merqueo.edson.databinding.LayoutMovieDetailFragmentBinding
-import com.merqueo.edson.ui.utils.loadImage
 import com.merqueo.edson.ui.viewModels.MovieDetailViewModel
-import com.merqueo.edson.utils.getViewModelFactory
+import com.merqueo.edson.ui.utils.getViewModelFactory
 
 /**
  * Class used to manage the movie detail

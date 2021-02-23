@@ -1,6 +1,6 @@
-package com.merqueo.businessModels.result
+package com.merqueo.businessmodels.result
 
-import com.merqueo.businessModels.business.Movie
+import com.merqueo.businessmodels.business.Movie
 
 interface IMovieResult {
     fun setMovieList(movieList: ArrayList<Movie>)

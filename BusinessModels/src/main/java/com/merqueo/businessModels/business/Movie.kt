@@ -1,14 +1,14 @@
-package com.merqueo.businessModels.business
+package com.merqueo.businessmodels.business
 
 import com.google.gson.annotations.SerializedName
 
-data class Movie(
+data class Movie (
+    val id: Number = 0,
     val adult : Boolean = false,
     @SerializedName("backdrop_path")
     val backdropPath: String? = null,
     @SerializedName("genre_ids")
     val genreIds: List<Int>? = null,
-    val id : Int = 0,
     @SerializedName("media_type")
     val mediaType: String? = null,
     @SerializedName("original_language")

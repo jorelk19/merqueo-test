@@ -11,10 +11,10 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.merqueo.edson.R
 import com.merqueo.edson.databinding.LayoutMoviesFragmentBinding
+import com.merqueo.edson.ui.utils.getViewModelFactory
 import com.merqueo.edson.ui.viewModels.MovieViewModel
 import com.merqueo.edson.ui.views.fragments.adapters.MoviesAdapter
-import com.merqueo.edson.utils.Navigation
-import com.merqueo.edson.utils.getViewModelFactory
+import com.merqueo.utils.Navigation
 
 /**
  * Class used to load the movie list

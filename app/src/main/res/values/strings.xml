@@ -1,10 +1,6 @@
 <resources>
     <string name="app_name">Merqueo test</string>
-    <string name="app_api_key">f60085a37ecfbeb9457006533819927a</string>
     <string name="timerForValidateInternet">3000</string>
-    <string name="something_went_wrong_retry">Algo salió mal</string>
-    <string name='currencyIdentifier' translatable='false'>en_US</string>
-    <string name='hasDecimals' translatable='false'>false</string>
     <string name="movie_name">Peliculas</string>
     <string name="movie_title">Peliculas</string>
     <string name="overview_title">Sinopsis</string>
