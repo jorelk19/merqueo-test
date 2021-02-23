@@ -2,7 +2,9 @@ package com.merqueo.repository
 
 import com.merqueo.businessmodels.business.Movie
 import com.merqueo.businessmodels.api.MovieApi
-import com.merqueo.repository.local.LocalRepositoryManager
+import com.merqueo.repository.local.MovieLocalRepository
+import com.merqueo.repository.local.entities.MovieDTO
+import com.merqueo.repository.remote.RemoteRepository
 
 /**
  * Class used to manage the repository data and return correct information
@@ -10,21 +12,22 @@ import com.merqueo.repository.local.LocalRepositoryManager
  * @since 1.0.0
  * */
 open class RepositoryManager(private val movieApi: MovieApi, private val apiKey: String) {
-    private val localRepositoryManager = LocalRepositoryManager()
+    private val movieLocalRepository = MovieLocalRepository()
+    private val remoteRepository = RemoteRepository(movieApi,apiKey)
 
     suspend fun getRemoteMovies(): ArrayList<Movie> {
-        return movieApi.getMovies(apiKey = apiKey).movies
+        return remoteRepository.getRemoteMovies()
     }
 
     fun saveMovieLocal(movie: Movie){
-        localRepositoryManager.saveMovie(movie)
+        movieLocalRepository.create(movie)
     }
 
     fun deleteAllMoviesLocal(){
-        localRepositoryManager.removeAllMovies()
+        movieLocalRepository.removeAll(MovieDTO())
     }
 
     fun getLocalMovies(): ArrayList<Movie> {
-        return localRepositoryManager.getAllMovies()
+        return movieLocalRepository.getAll(MovieDTO())
     }
 }

@@ -3,7 +3,12 @@ package com.merqueo.repository.local.mapper
 import com.merqueo.businessmodels.business.Movie
 import com.merqueo.repository.local.entities.MovieDTO
 
-class LocalRepositoryMapper {
+/**
+ * Class used to map values into movie entities
+ * @author Edson Joel Nieto Ardila
+ * @since 1.0.0
+ * */
+class LocalRepositoryMovieMapper {
     companion object {
         fun mapMovieDTO(movie: Movie): MovieDTO {
             val movieDTO = MovieDTO()

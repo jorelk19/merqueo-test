@@ -2,15 +2,22 @@ package com.merqueo.repository.local
 
 import com.merqueo.businessmodels.business.Movie
 import com.merqueo.repository.local.entities.MovieDTO
-import com.merqueo.repository.local.mapper.LocalRepositoryMapper
+import com.merqueo.repository.local.mapper.LocalRepositoryMovieMapper
 import io.realm.Realm
 
-class LocalRepositoryManager() {
+/**
+ * Class used to manage the local repository
+ * @author Edson Joel Nieto Ardila
+ * @since 1.0.0
+ * */
+class MovieLocalRepository : ILocalRepositoryManager<Movie, MovieDTO> {
     private var realm: Realm = Realm.getDefaultInstance()
+    override fun update(element: Movie) {
+    }
 
-    fun saveMovie(movie: Movie){
+    override fun create(movie: Movie) {
         val index = realm.where(MovieDTO::class.java).max("_id")
-        val movieDto = LocalRepositoryMapper.mapMovieDTO(movie)
+        val movieDto = LocalRepositoryMovieMapper.mapMovieDTO(movie)
         index?.let { num ->
             movieDto.id = num.toInt() + 1
         } ?: run { movieDto.id = 1 }
@@ -20,30 +27,29 @@ class LocalRepositoryManager() {
         }
     }
 
-    fun updateMovie(){
+    override fun delete(element: Movie) {
     }
 
-    fun deleteMovie(){
+    override fun read(element: MovieDTO): Movie {
+        return Movie()
     }
 
-    fun getMovie(){
-    }
-
-    fun removeAllMovies(){
-        val movieDTO = realm.where(MovieDTO::class.java).findAll()
+    override fun removeAll(movieDTOType: MovieDTO) {
+        val movieDTO = realm.where(movieDTOType::class.java).findAll()
         realm.executeTransaction {
             movieDTO.deleteAllFromRealm()
         }
     }
 
-    fun getAllMovies() : ArrayList<Movie>{
+    override fun getAll(element: MovieDTO) :ArrayList<Movie> {
         val movies = ArrayList<Movie>()
         val moviesDto = realm.where(MovieDTO::class.java).findAll()
         moviesDto?.let { movieDTOResults ->
             movieDTOResults.forEach {
-                movies.add(LocalRepositoryMapper.mapMovieBusiness(it))
+                movies.add(LocalRepositoryMovieMapper.mapMovieBusiness(it))
             }
         }
         return  movies
     }
 }
+

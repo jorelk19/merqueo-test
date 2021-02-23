@@ -2,6 +2,11 @@ package com.merqueo.repository.local.entities
 
 import io.realm.RealmObject
 
+/**
+ * Class used to store local information with realm
+ * @author Edson Joel Nieto Ardila
+ * @since 1.0.0
+ * */
 open class MovieDTO : RealmObject() {
 
     private var _id: Int = 0
