@@ -1,9 +1,6 @@
 package com.merqueo.di
 
 import android.content.Context
-import com.merqueo.di.NetworkModule
-import com.merqueo.di.RepositoryModule
-import com.merqueo.di.domainModule
 import com.merqueo.repository.RepositoryConfiguration
 import org.koin.core.context.startKoin
 
@@ -27,7 +24,7 @@ class KoinManager {
         }
 
         fun getAppComponent() : AppComponent{
-            val appComponent by lazy(LazyThreadSafetyMode.SYNCHRONIZED) { StoreComponent().appComponent }
+            val appComponent by lazy(LazyThreadSafetyMode.SYNCHRONIZED) { MovieComponent().appComponent }
             return appComponent
         }
 

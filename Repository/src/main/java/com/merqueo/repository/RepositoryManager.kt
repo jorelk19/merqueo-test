@@ -11,23 +11,23 @@ import com.merqueo.repository.remote.RemoteRepository
  * @author Edson Joel Nieto Ardila
  * @since 1.0.0
  * */
-open class RepositoryManager(private val movieApi: MovieApi, private val apiKey: String) {
+open class RepositoryManager(private val movieApi: MovieApi, private val apiKey: String) : IRepositoryManager {
     private val movieLocalRepository = MovieLocalRepository()
     private val remoteRepository = RemoteRepository(movieApi,apiKey)
 
-    suspend fun getRemoteMovies(): ArrayList<Movie> {
+    override suspend fun getRemoteMovies(): ArrayList<Movie> {
         return remoteRepository.getRemoteMovies()
     }
 
-    fun saveMovieLocal(movie: Movie){
+    override fun saveMovieLocal(movie: Movie){
         movieLocalRepository.create(movie)
     }
 
-    fun deleteAllMoviesLocal(){
+    override fun deleteAllMoviesLocal(){
         movieLocalRepository.removeAll(MovieDTO())
     }
 
-    fun getLocalMovies(): ArrayList<Movie> {
+    override fun getLocalMovies(): ArrayList<Movie> {
         return movieLocalRepository.getAll(MovieDTO())
     }
 }

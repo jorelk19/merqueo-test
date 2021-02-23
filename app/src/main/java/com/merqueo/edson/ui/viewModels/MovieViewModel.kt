@@ -4,11 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.merqueo.businessmodels.business.Movie
 import com.merqueo.businessmodels.result.IMovieResult
-import com.merqueo.domain.MovieDomain
+import com.merqueo.domain.base.DomainManager
 import com.merqueo.edson.ui.viewModels.base.BaseViewModel
 import com.merqueo.utils.Navigation
 
-class MovieViewModel(private val movieDomain: MovieDomain) : BaseViewModel() {
+class MovieViewModel(private val movieDomain: DomainManager<IMovieResult>) : BaseViewModel() {
 
     var movies = MutableLiveData<ArrayList<Movie>>()
     fun getMoviesLiveData(): LiveData<ArrayList<Movie>> {
@@ -24,6 +24,6 @@ class MovieViewModel(private val movieDomain: MovieDomain) : BaseViewModel() {
     fun getMovies() {
         movieDomain.errorManager = this
         movieDomain.hasInternet = Navigation.getInstance.hasInternet()
-        movieDomain.getMovies(movieResult)
+        movieDomain.domainResult(movieResult)
     }
 }

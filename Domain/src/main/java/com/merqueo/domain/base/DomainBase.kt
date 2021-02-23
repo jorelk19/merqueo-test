@@ -14,7 +14,6 @@ import kotlin.coroutines.CoroutineContext
 open class DomainBase : CoroutineScope {
     private val job = Job()
     override val coroutineContext: CoroutineContext = job + Dispatchers.IO
-
     lateinit var errorManager : IErrorManager
     var hasInternet : Boolean = false
 }

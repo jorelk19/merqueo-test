@@ -10,7 +10,7 @@ import org.koin.core.inject
  * @author Edson Joel Nieto Ardila
  * @since 1.0.0
  * */
-class StoreComponent : KoinComponent {
+class MovieComponent : KoinComponent {
     private val repositoryManager : RepositoryManager by inject()
     private val movieDomain : MovieDomain by inject()
     val appComponent = AppComponent (

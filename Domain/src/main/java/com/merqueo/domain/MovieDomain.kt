@@ -1,8 +1,12 @@
 package com.merqueo.domain
 
+import android.os.Parcel
+import android.os.Parcelable
+import com.merqueo.businessmodels.business.Movie
 import com.merqueo.businessmodels.result.IMovieResult
 import com.merqueo.domain.base.DomainBase
-import com.merqueo.repository.RepositoryManager
+import com.merqueo.domain.base.DomainManager
+import com.merqueo.repository.IRepositoryManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -15,19 +19,19 @@ import java.net.SocketTimeoutException
  * @author Edson Joel Nieto Ardila
  * @since 1.0.0
  * */
-class MovieDomain(private val repositoryManager: RepositoryManager) : DomainBase() {
-    fun getMovies(movieResult : IMovieResult){
+class MovieDomain(private val repositoryManager: IRepositoryManager) : DomainManager<IMovieResult>() {
+    override fun domainResult(movieResult: IMovieResult) {
         launch(Dispatchers.Main) {
             try {
                 errorManager.onShowLoader()
-                if(hasInternet) {
+                if (hasInternet) {
                     val movies = withContext(Dispatchers.IO) { repositoryManager.getRemoteMovies() }
                     movieResult.setMovieList(movies)
                     repositoryManager.deleteAllMoviesLocal()
                     for (movie in movies) {
                         repositoryManager.saveMovieLocal(movie)
                     }
-                }else{
+                } else {
                     val movies = repositoryManager.getLocalMovies()
                     movieResult.setMovieList(movies)
                 }
@@ -39,7 +43,6 @@ class MovieDomain(private val repositoryManager: RepositoryManager) : DomainBase
             } catch (exception: IOException) {
                 errorManager.onSocketTimeoutException(exception.message)
             }
-
         }
     }
 }

@@ -1,6 +1,8 @@
 package com.merqueo.di
 
 import com.merqueo.businessmodels.api.MovieApi
+import com.merqueo.businessmodels.result.IMovieResult
+import com.merqueo.domain.IMovieDomain
 import com.merqueo.repository.RepositoryManager
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -14,11 +16,11 @@ class RepositoryModule(private val apiKey: String) {
     /**
      * Provider to get the repository manager instance
      * */
-    private fun provideStoreRepository(movieApi: MovieApi) = RepositoryManager(movieApi, apiKey)
+    private fun provideMovieRepository(movieApi: MovieApi) = RepositoryManager(movieApi, apiKey)
 
     fun initModule(): Module {
         return module {
-            single { provideStoreRepository(get()) }
+            single { provideMovieRepository(get()) }
         }
     }
 }
